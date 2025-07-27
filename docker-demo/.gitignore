@@ -1,0 +1,7 @@
+# Includes files to be ignored from directory
+/ny_taxi_postgres_data
+README.md
+*.csv.*
+*.csv
+/.ipynb_checkpoints
+.DS_Store
