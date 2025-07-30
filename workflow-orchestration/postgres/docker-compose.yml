@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres-db
+    volumes:
+      - "/Users/amitzala/Documents/Gesu-Study/GitHub/data-engineering-zoomcamp/workflow-orchestration/postgres-data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_DB: postgres_zoomcamp
+      POSTGRES_USER: kestra
+      POSTGRES_PASSWORD: k3str4
+    ports:
+    - "5432:5432"
