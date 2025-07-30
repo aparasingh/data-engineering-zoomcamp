@@ -1,3 +1,5 @@
 /cloud-environment
+/*/*/postgres-data
 /*/postgres-data
 /*/.DS_Store
+.DS_Store
