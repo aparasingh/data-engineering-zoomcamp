@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:13
+    image: postgres:15
     container_name: postgres-db
     volumes:
       - "/Users/amitzala/Documents/Gesu-Study/GitHub/data-engineering-zoomcamp/workflow-orchestration/postgres-data:/var/lib/postgresql/data"
