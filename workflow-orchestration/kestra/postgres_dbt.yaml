@@ -21,7 +21,7 @@ tasks:
   - id: dbt-build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     env:
-      DBT_DATABASE: postgres-zoomcamp
+      DBT_DATABASE: postgres_zoomcamp
       DBT_SCHEMA: public
     namespaceFiles:
       enabled: true
@@ -44,7 +44,7 @@ tasks:
             user: kestra
             password: k3str4
             port: 5432
-            dbname: postgres-zoomcamp
+            dbname: postgres_zoomcamp
             schema: public
             threads: 8
             connect_timeout: 10
@@ -55,6 +55,6 @@ description: |
   ```yaml
   sources:
     - name: staging
-      database: postgres-zoomcamp
+      database: postgres_zoomcamp
       schema: public
   ```
