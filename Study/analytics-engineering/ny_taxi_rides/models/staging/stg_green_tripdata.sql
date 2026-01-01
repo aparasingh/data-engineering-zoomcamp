@@ -7,19 +7,19 @@
 with tripdata as 
 (
   select *,
-    row_number() over(partition by vendorid, lpep_pickup_datetime) as rn
+    row_number() over(partition by vendor_id, pickup_datetime) as rn
   from {{ source('staging','green_tripdata') }}
-  where vendorid is not null 
+  where vendor_id is not null 
 )
 select
     -- identifiers
-    {{ dbt_utils.generate_surrogate_key(['vendorid', 'lpep_pickup_datetime']) }} as tripid,
-    vendorid,
-    ratecodeid,
-    pulocationid,
-    dolocationid,
-    lpep_pickup_datetime as pickup_datetime,
-    lpep_dropoff_datetime as dropoff_datetime,
+    {{ dbt_utils.generate_surrogate_key(['vendor_id', 'pickup_datetime']) }} as tripid,
+    vendor_id as vendorid,
+    rate_code,
+    {{ dbt.safe_cast("pickup_location_id", api.Column.translate_type("integer")) }} as pickup_locationid,
+    {{ dbt.safe_cast("dropoff_location_id", api.Column.translate_type("integer")) }} as dropoff_locationid,
+    pickup_datetime,
+    dropoff_datetime,
     store_and_fwd_flag,
     passenger_count,
     trip_distance,
@@ -28,7 +28,7 @@ select
     mta_tax,
     tip_amount,
     tolls_amount,
-    improvement_surcharge,
+    imp_surcharge as improvement_surcharge,
     total_amount,
     payment_type,
     {{ get_payment_type_description("payment_type") }} as payment_type_description

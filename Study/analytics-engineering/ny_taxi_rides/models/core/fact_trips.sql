@@ -26,11 +26,11 @@ dim_zones as (
 select t.tripid, 
     t.vendorid, 
     t.service_type,
-    t.ratecodeid, 
-    t.pulocationid, 
+    t.rate_code, 
+    t.pickup_locationid, 
     pz.borough as pickup_borough, 
     pz.zone as pickup_zone, 
-    t.dolocationid,
+    t.dropoff_locationid,
     dz.borough as dropoff_borough, 
     dz.zone as dropoff_zone,  
     t.pickup_datetime, 
@@ -49,6 +49,6 @@ select t.tripid,
     t.payment_type_description
 from trips_unioned as t
 inner join dim_zones as pz
-on t.pulocationid = pz.locationid
+on t.pickup_locationid = pz.locationid
 inner join dim_zones as dz
-on t.dolocationid = dz.locationid
+on t.dropoff_locationid = dz.locationid
