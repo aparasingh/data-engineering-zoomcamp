@@ -7,19 +7,19 @@
 with tripdata as 
 (
   select *,
-    row_number() over(partition by vendorid, tpep_pickup_datetime) as rn
+    row_number() over(partition by vendorid, lpep_pickup_datetime) as rn
   from {{ source('staging','green_tripdata') }}
   where vendorid is not null 
 )
 select
     -- identifiers
-    {{ dbt_utils.generate_surrogate_key(['vendorid', 'tpep_pickup_datetime']) }} as tripid,
+    {{ dbt_utils.generate_surrogate_key(['vendorid', 'lpep_pickup_datetime']) }} as tripid,
     vendorid,
     ratecodeid,
     pulocationid,
     dolocationid,
-    tpep_pickup_datetime,
-    tpep_dropoff_datetime,
+    lpep_pickup_datetime as pickup_datetime,
+    lpep_dropoff_datetime as dropoff_datetime,
     store_and_fwd_flag,
     passenger_count,
     trip_distance,
