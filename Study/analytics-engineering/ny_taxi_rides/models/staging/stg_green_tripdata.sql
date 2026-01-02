@@ -30,7 +30,7 @@ select
     tolls_amount,
     imp_surcharge as improvement_surcharge,
     total_amount,
-    payment_type,
+    {{ dbt.safe_cast("payment_type", api.Column.translate_type("integer")) }} as payment_type,
     {{ get_payment_type_description("payment_type") }} as payment_type_description
 from tripdata
 where rn = 1
