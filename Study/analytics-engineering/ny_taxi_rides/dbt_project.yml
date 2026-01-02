@@ -37,4 +37,4 @@ models:
   ny_taxi_rides:
 
 vars:
-  payment_type_values: ['1', '2', '3', '4', '5']
+  payment_type_values: [1, 2, 3, 4, 5]

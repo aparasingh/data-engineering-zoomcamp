@@ -40,6 +40,7 @@ models:
               field: locationid
               to: ref('taxi_zone_lookup')
               severity: warn
+       
 
       - name: dropoff_locationid
         data_type: int64
@@ -99,7 +100,7 @@ models:
         description: ""
 
       - name: payment_type
-        data_type: string
+        data_type: int64
         description: ""
         tests:
           - accepted_values:
@@ -199,7 +200,7 @@ models:
         description: ""
 
       - name: payment_type
-        data_type: string
+        data_type: int64
         description: ""
         tests:
           - accepted_values:
