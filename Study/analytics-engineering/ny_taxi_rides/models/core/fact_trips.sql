@@ -48,7 +48,9 @@ select t.tripid,
     t.payment_type, 
     t.payment_type_description
 from trips_unioned as t
+-- get pickup location data
 inner join dim_zones as pz
 on t.pickup_locationid = pz.locationid
+-- get dropoff location data
 inner join dim_zones as dz
 on t.dropoff_locationid = dz.locationid
