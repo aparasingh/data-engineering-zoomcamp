@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
 import argparse
 
 import pyspark
@@ -22,7 +17,6 @@ input_yellow = args.input_yellow
 output = args.output
 
 spark = SparkSession.builder \
-    .master("spark://Amits-MacBook-Air.local:7077") \
     .appName('test') \
     .getOrCreate()\
 
