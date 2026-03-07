@@ -3,3 +3,8 @@
 *.csv.gz
 *.json
 .ipynb_checkpoints/*
+code/.ipynb_checkpoints/*
+data/*
+lib/*
+zones/*
+tmp/*
