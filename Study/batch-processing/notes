@@ -7,6 +7,28 @@ URL="spark://Amits-MacBook-Air.local:7077"
 spark-submit \
     --master="${URL}" \
     10_spark_local.py \
-        --input_green="data/pq/green/2021/*/" \
-        --input_yellow="data/pq/yellow/2021/*/" \
-        --output=data/report-2021
+        --input_green="data/pq/green/2020/*/" \
+        --input_yellow="data/pq/yellow/2020/*/" \
+        --output=data/report-2020
+
+        stop the owrker and master after work
+
+
+DataProc:
+--input_green=gs://batch-processing-study/pq/green/2020/*/
+--input_yellow=gs://batch-processing-study/pq/yellow/2020/*/
+--output=gs://batch-processing-study/report-2020
+
+location of script: gs://batch-processing-study/code/10_spark_local.py
+
+
+Submit job using cloud SDK:
+
+gcloud dataproc jobs submit pyspark \
+    --cluster=de-zc-cluster \
+    --region=us-central1 \
+    gs://batch-processing-study/code/10_spark_local.py \
+    -- \
+        --input_green="gs://batch-processing-study/pq/green/2021/*/" \
+        --input_yellow="gs://batch-processing-study/pq/yellow/2021/*/" \
+        --output=gs://batch-processing-study/report-2021

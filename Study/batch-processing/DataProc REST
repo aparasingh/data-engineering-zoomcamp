@@ -1,0 +1,50 @@
+{
+  "reference": {
+    "jobId": "job-78fe4561",
+    "projectId": "de-zc-data-warehouse"
+  },
+  "placement": {
+    "clusterName": "de-zc-cluster"
+  },
+  "status": {
+    "state": "DONE",
+    "stateStartTime": "2026-03-14T19:41:09.282984Z"
+  },
+  "yarnApplications": [
+    {
+      "name": "test",
+      "state": "FINISHED",
+      "progress": 1,
+      "trackingUrl": "http://de-zc-cluster-m.us-central1-b.c.de-zc-data-warehouse.internal.:8088/proxy/application_1773516429522_0001/",
+      "vcoreSeconds": "153",
+      "memoryMbSeconds": "505578"
+    }
+  ],
+  "statusHistory": [
+    {
+      "state": "PENDING",
+      "stateStartTime": "2026-03-14T19:39:34.862090Z"
+    },
+    {
+      "state": "SETUP_DONE",
+      "stateStartTime": "2026-03-14T19:39:35.078732Z"
+    },
+    {
+      "state": "RUNNING",
+      "details": "Agent reported job success",
+      "stateStartTime": "2026-03-14T19:39:35.594607Z"
+    }
+  ],
+  "driverControlFilesUri": "gs://dataproc-staging-us-central1-741472559628-qgpos4bk/google-cloud-dataproc-metainfo/834de3b7-6e85-4c3a-9980-ae210e941e15/jobs/job-78fe4561/",
+  "driverOutputResourceUri": "gs://dataproc-staging-us-central1-741472559628-qgpos4bk/google-cloud-dataproc-metainfo/834de3b7-6e85-4c3a-9980-ae210e941e15/jobs/job-78fe4561/driveroutput",
+  "jobUuid": "4e4040d5-4b81-4f53-957c-eaf5a0be53be",
+  "done": true,
+  "pysparkJob": {
+    "mainPythonFileUri": "gs://batch-processing-study/code/10_spark_local.py",
+    "args": [
+      "--input_green=gs://batch-processing-study/pq/green/2020/*/",
+      "--input_yellow=gs://batch-processing-study/pq/yellow/2020/*/",
+      "--output=gs://batch-processing-study/report-2020"
+    ]
+  }
+}
